@@ -12,7 +12,7 @@ import pic5 from "./assets/pic5.webp";
 
 export default function Slider() {
   const pics = [pic1, pic2, pic3, pic4, pic5];
-  const itemsPerPage = 5;
+  const [itemsPerPage, setItemsPerPage] = useState(5);
   const gap = 30;
 
   const [dataSlider, setDataSlider] = useState(pics);
@@ -47,6 +47,30 @@ export default function Slider() {
 
     return () => clearInterval(interval);
   }, [dataSlider]);
+
+  useEffect(() => {
+    const handleResize = () => {
+      const width = window.innerWidth;
+  
+      if (width < 576) {
+        setItemsPerPage(1); // X-Small
+      } else if (width >= 576 && width < 768) {
+        setItemsPerPage(2); // Small
+      } else if (width >= 768 && width < 992) {
+        setItemsPerPage(3); // Medium
+      } else if (width >= 992 && width < 1200) {
+        setItemsPerPage(4); // Large
+      } else {
+        setItemsPerPage(5); // XX-Large
+      }
+    };
+  
+    handleResize(); // لتعيين القيمة عند أول تحميل
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+
   const cardWidth = `(100% - ${(itemsPerPage - 1) * gap}px) / ${itemsPerPage}`;
   const sliderStyle = css`
      transform: translateX(calc(-${count} * (calc(${cardWidth}) + ${gap}px)));
