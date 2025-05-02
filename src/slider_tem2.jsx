@@ -47,10 +47,10 @@ export default function Slider() {
 
     return () => clearInterval(interval);
   }, [dataSlider]);
-
+  const cardWidth = `(100% - ${(itemsPerPage - 1) * gap}px) / ${itemsPerPage}`;
   const sliderStyle = css`
-    transform: translateX(calc(-${count} * ((100% - ${(itemsPerPage - 1) * gap}px) / ${itemsPerPage} + ${gap}px)));
-    transition: transform 1s ease-in-out;
+     transform: translateX(calc(-${count} * (calc(${cardWidth}) + ${gap}px)));
+  transition: transform 1s ease-in-out;
   `;
 
   return (
