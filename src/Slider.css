@@ -1,0 +1,98 @@
+.parent {
+  /* overflow: hidden; */
+  width: 100%;
+  height: 100%;
+  background-color: rgb(220, 216, 216);
+  padding: 40px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.parent .swiper-btns {
+  width: 98%;
+  /* background-color: rgb(12, 85, 189); */
+  padding: 20px 0;
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.parent .swiper-btns button {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  color: rgb(255, 255, 255);
+  background-color: black;
+  transition: 0.7s;
+}
+.parent .swiper-btns button:hover {
+  background-color: white;
+  color: black;
+}
+
+.parent .swiper-btns button:nth-of-type(1) {
+  left: 0;
+}
+
+.parent .swiper-btns button:nth-of-type(2) {
+  right: 0;
+}
+
+
+.parent .slider-wrapper{
+  overflow: hidden;
+  width: 96%;
+  padding: 30px;
+  background-color: rgb(79, 139, 143);
+}
+
+.parent .slider-wrapper .slider-parent {
+  display: flex;
+  /* align-items: center; */
+  gap: 30px;
+}
+.slider-wrapper .slider-parent .card {
+  flex: 0 0 calc((100% - (4 * 30px)) / 5); /* This makes sure each of the 6 cards fits alongside 5 gaps of 30px inside the .slider-wrapper .slider-parent. */
+  /*
+  خصم الفجوة الي ما بين العناصر هي الي بتعطي تمدد في مساحة الكروت لكن الفجوة الاصلية بتظل محتفظة
+   بين الكروت الجديدة يعني ناتج الخصم هو مقدار التمدد في باقي الكروت
+  */
+  background-color: white;
+  padding: 20px;
+  border-radius: 20px;
+  border: 2px solid navy;
+}
+.slider-wrapper .slider-parent .card .card-img {
+  /* width: 400px; */
+  height: 300px;
+  overflow: hidden;
+}
+.slider-wrapper .slider-parent .card .card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.pagination span {
+  width: 10px;
+  height: 10px;
+  margin: 0 5px;
+  background-color: #ccc;
+  border-radius: 50%;
+  display: inline-block;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.pagination span.active {
+  background-color: #333;
+  transform: scale(1.2);
+}
