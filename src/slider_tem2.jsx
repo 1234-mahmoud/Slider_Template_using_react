@@ -52,7 +52,7 @@ export default function Slider() {
     transform: translateX(calc(-${count} * ((100% - ${(itemsPerPage - 1) * gap}px) / ${itemsPerPage} + ${gap}px)));
     transition: transform 1s ease-in-out;
   `;
-  const paginationLength = Math.max(1, pics.length - itemsPerPage + 1);
+
   return (
     <div className="parent">
       <div className="swiper-btns">
